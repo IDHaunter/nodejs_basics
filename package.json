@@ -1,0 +1,12 @@
+{
+  "name": "basic_express",
+  "version": "1.0.0",
+  "description": "Basic possibilities",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node ./testing/test_code.js"
+  },
+  "author": "IDHaunter",
+  "license": "ISC"
+}

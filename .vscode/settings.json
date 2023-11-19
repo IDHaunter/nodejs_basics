@@ -1,0 +1,21 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "connectionTimeout": 30,
+            "hanaOptions": {
+                "encrypt": false,
+                "sslValidateCertificate": false,
+                "sslCryptoProvider": "openssl"
+            },
+            "previewLimit": 50,
+            "driver": "SAPHana",
+            "name": "DB_AS",
+            "server": "hdbbw1clone",
+            "port": 30015,
+            "database": "SKYBFRYAI_ACTIONSERVER_4",
+            "username": "SKYBFRYAI_ACTIONSERVER_4_1MNB0OLMSK0T255NQJ0XX6OIT_RT",
+            "password": "Dc6.BJln1M1KuVmtH1c4Lx5UkT.iHjq7QPn6zUZ9ryB8CJnpUfu.5xbm4esi_nlCditQG3nzz235CINEmfLvI9-ouwhu358OiDO37daNLxaVOD1ThKd87I5O736tZ1TY"
+        }
+    ]
+}

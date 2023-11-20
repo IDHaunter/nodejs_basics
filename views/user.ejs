@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express</title>
+  <style>
+    body {
+      color: #fff;
+      background: #333;
+      text-align: center;
+      padding-top: 60px;  
+    }
+  </style>  
+</head>
+<body>
+
+<h1>This is user page: <%= username %> </h1>
+<% if (username.toLowerCase() == 'john') { %>
+<p>Data for <%= username %> </p>
+<ul>
+    <% hobbies.forEach((el) => { %>
+        <li><%= el %></li>
+    <% }) %>
+<ul>    
+<% } %>
+</body>
+</html>

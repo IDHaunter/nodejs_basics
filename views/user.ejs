@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Express</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- 
   <style>
     body {
       color: #fff;
@@ -12,18 +14,22 @@
       text-align: center;
       padding-top: 60px;  
     }
-  </style>  
+
+  </style> 
+   -->
 </head>
 <body>
-
-<h1>This is user page: <%= username %> </h1>
-<% if (username.toLowerCase() == 'john') { %>
-<p>Data for <%= username %> </p>
-<ul>
-    <% hobbies.forEach((el) => { %>
-        <li><%= el %></li>
-    <% }) %>
-<ul>    
-<% } %>
+  <%- include('blocks/header') -%>
+  <main>
+    <h1>This is user page: <%= username %> </h1>
+    <% if (username.toLowerCase() == 'john') { %>
+    <p>Data for <%= username %> </p>
+    <ul>
+        <% hobbies.forEach((el) => { %>
+            <li><%= el %></li>
+        <% }) %>
+    <ul>    
+    <% } %>
+  </main>
 </body>
 </html>

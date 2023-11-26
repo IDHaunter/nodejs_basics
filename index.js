@@ -4,6 +4,7 @@ const PORT = 3000;
 const app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
@@ -26,6 +27,16 @@ app.get('/user/:username/:id', (req, res) => {
     };
     res.render('user',data);
 })
+
+app.post('/check-user', (req,res) => {
+    console.log(req.body);
+    let username = req.body.username;
+    if (username == "") {
+        return req.redirect('/');
+    } else {
+        return res.redirect('/user/'+username+'/1');
+    }
+} )
 
 app.listen(PORT, () => {
     console.log(`Server started: http://localhost:${PORT}`);

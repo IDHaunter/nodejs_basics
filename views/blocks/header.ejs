@@ -4,8 +4,8 @@
       <a href="/">Main page</a>
       <a href="/about">About page</a>
     </nav>
-    <form>
-      <input type="text" placeholder="User name"> 
-      <button> Search </button>
+    <form method="post" action="/check-user">
+      <input type="text" name="username" placeholder="User name"> 
+      <button type="submit"> Search </button>
     </form>
   </header> 

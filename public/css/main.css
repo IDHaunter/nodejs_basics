@@ -78,3 +78,12 @@ main p {
     font-weight: bold;
 }
 
+ul {
+    list-style: none ;
+    background: rgb(204, 111, 57);
+    color: rgb(71, 26, 17);
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-top: 10px;
+    border-radius: 10px;
+  }

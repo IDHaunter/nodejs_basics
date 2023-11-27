@@ -1,11 +1,40 @@
+require('dotenv').config();
+
 const express = require('express');
 const PORT = 3000;
 
 const app = express();
+const jwt = require('jsonwebtoken');
+
+const posts = [
+    {
+        username: 'Kyle',
+        title: 'Post 1'
+    },
+    {
+        username: 'Jim',
+        title: 'Post 2'
+    }
+]
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
+app.use(express.json());
+
+app.get('/posts', (req, res) => {
+res.json(posts);
+} )
+
+app.post('/login', (req, res) => {
+    //Authenticate user
+
+    const username = req.body.username;
+    const user = {name: username};
+
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+    res.json({ accessToken: accessToken });
+} )
 
 app.get('/', (req, res) => {
     //res.sendFile(__dirname +'/templates_express/index.html');

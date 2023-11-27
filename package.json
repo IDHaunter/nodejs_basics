@@ -4,6 +4,7 @@
   "description": "Basic possibilities",
   "main": "index.js",
   "scripts": {
+    "devStart": "nodemon server.js",
     "start_http": "node index_http.js",
     "start": "node index.js",
     "test": "node ./testing/test_code.js"
@@ -11,7 +12,12 @@
   "author": "IDHaunter",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

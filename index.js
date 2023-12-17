@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+//npm run devStart - auto watching and restarting server
+
 const express = require('express');
 const PORT = 3000;
 
@@ -22,12 +24,15 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.static('public'));
 app.use(express.json());
 
-app.get('/posts', (req, res) => {
-res.json(posts);
+app.get('/posts', authenticateToken, (req, res) => {
+res.json(posts.filter(post => post.username === req.user.name));
+//res.json(posts);
 } )
 
 app.post('/login', (req, res) => {
     //Authenticate user
+
+    //new terminal + node + require('crypto').randomBytes(64).toString('hex') -> to generate secret key
 
     const username = req.body.username;
     const user = {name: username};
@@ -66,6 +71,18 @@ app.post('/check-user', (req,res) => {
         return res.redirect('/user/'+username+'/1');
     }
 } )
+
+function authenticateToken(req,res,next) {
+    const authHeader = req.headers['authorization'] ;
+    const token = authHeader && authHeader.split(' ')[1];
+    if (token == null) return res.sendStatus(401);
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err,user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next()
+    } )
+}
 
 app.listen(PORT, () => {
     console.log(`Server started: http://localhost:${PORT}`);
